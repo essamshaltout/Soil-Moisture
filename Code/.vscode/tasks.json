@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build HEX",
+            "type": "shell",
+            "command": "avr-gcc",
+            "args": [
+                "-mmcu=atmega32",
+                "-Os",
+                "-o",
+                "main.hex",
+                "main.c"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Generate HEX",
+            "type": "shell",
+            "command": "avr-objcopy",
+            "args": [
+                "-O",
+                "ihex",
+                "main.elf",
+                "main.hex"
+            ]
+        }
+    ]
+}
